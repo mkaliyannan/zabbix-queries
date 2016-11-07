@@ -1,5 +1,3 @@
-# zabbix-queries
-Zabbix DB SQL queries to bring the trigger status.
 
 Zabbix is a monitoring tool which can be useful monitor entire infrastructure, litrelly any services. if not already experienced take a 
 look here https://zabbix.org/zabbix/zabbix.php?action=dashboard.view
@@ -7,15 +5,15 @@ look here https://zabbix.org/zabbix/zabbix.php?action=dashboard.view
 Zabbix UI is not realtivly simple and userfriendly. It's good for deep analysis and not good for public view. I decided to use stashboard 
 (http://www.stashboard.org/) UI to update the status on the public view based on zabbix trigger status.
 
-## Zabbix queries get the current trigger status ###
 
-
-MySQL Querires :
+## Zabbix MySQL Querires status ###
 
 
 //to get displayed all host names.
 
 SELECT DISTINCT host, hostid from hosts WHERE host NOT LIKE '%Template%' AND host NOT LIKE '%{%'
+
+
 
 
 // To get all triggered hosts.
