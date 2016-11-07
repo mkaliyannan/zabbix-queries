@@ -1,6 +1,9 @@
-... 
+## Zabbix Monitoring Tool
+
 Zabbix is a monitoring tool which can be useful monitor entire infrastructure, litrelly any services. if not already experienced take a 
 look here https://zabbix.org/zabbix/zabbix.php?action=dashboard.view
+
+## Stash board 
 
 Zabbix UI is not realtivly simple and userfriendly. It's good for deep analysis and not good for public view. I decided to use stashboard 
 (http://www.stashboard.org/) UI to update the status on the public view based on zabbix trigger status.
@@ -8,13 +11,11 @@ Zabbix UI is not realtivly simple and userfriendly. It's good for deep analysis 
 
 ## Zabbix MySQL Querires status ###
 
-
-** //to get displayed all host names.
+//to get displayed all host names.
 
 SELECT DISTINCT host, hostid from hosts WHERE host NOT LIKE '%Template%' AND host NOT LIKE '%{%'
 
-
-
+## Query to get all triggered hosts
 
 // To get all triggered hosts.
 
@@ -36,7 +37,7 @@ ORDER BY t.lastchange DESC
 
 
 
-// To get a triggers based on the hostname.
+## To get a triggers based on the hostname.
 
 SELECT DISTINCT host, t.description, f.triggerid, e.acknowledged, t.value
 FROM triggers t
@@ -54,4 +55,5 @@ AND t.status =0
 AND host = 'hostname you want to get'
 GROUP BY f.triggerid
 ORDER BY t.lastchange DESC
-..
+
+
