@@ -8,7 +8,7 @@ Zabbix UI is not realtivly simple and userfriendly. It's good for deep analysis 
 
 ## Zabbix MySQL Querires status ###
 
-
+...
 //to get displayed all host names.
 
 SELECT DISTINCT host, hostid from hosts WHERE host NOT LIKE '%Template%' AND host NOT LIKE '%{%'
@@ -54,3 +54,4 @@ AND t.status =0
 AND host = 'hostname you want to get'
 GROUP BY f.triggerid
 ORDER BY t.lastchange DESC
+..
