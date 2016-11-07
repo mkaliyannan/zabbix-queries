@@ -17,7 +17,9 @@ Zabbix is a monitoring tool which can be useful monitor entire infrastructure, l
 
 ### Stashboard 
 
-Stashboard is a statusboard similar like google amazon services status. It's based on Google app enginer. It's good for deep analysis and not good for public view. I decided to use stashboard (http://www.stashboard.org/) UI to update the status on the public view based on zabbix trigger status. However if you want to run locally use whisker board which is forked from stashboard and using Djano frame work based on python.
+Stashboard is a statusboard similar like google amazon services status. It's based on Google app enginer. It's good for deep analysis and not good for public view. I decided to use stashboard (http://www.stashboard.org/) UI to update the status on the staff view based on zabbix trigger status. However if you want to run locally use whisker board which is forked from stashboard and using Djano frame work based on python.
+
+You can take a look demo at http://stashboard.appspot.com 
 
 
 
