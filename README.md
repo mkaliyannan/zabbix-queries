@@ -4,7 +4,7 @@
       
   The goal of the project to get dashboard similar like Google (https://www.google.com/appsstatus#hl=en&v=status) and AWS status monitoring for the internal staff or your customers view.
   
-  Both tools are different purposes and we want to get queried the zabbix trigger and get update to stashboard via REST API or JSON,SOAP UI. 
+  Both tools are different purposes and we want to get queried the zabbix trigger and get update to stashboard via REST API or JSON,SOAP . 
 
 
 ###  Zabbix Monitoring Tool
