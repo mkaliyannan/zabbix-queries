@@ -1,24 +1,39 @@
-## Zabbix Monitoring Tool
 
-Zabbix is a monitoring tool which can be useful monitor entire infrastructure, litrelly any services. if not already experienced take a 
-look here https://zabbix.org/zabbix/zabbix.php?action=dashboard.view
+## Zabbix  with stashboard
 
-## Stash board 
-
-Zabbix UI is not realtivly simple and userfriendly. It's good for deep analysis and not good for public view. I decided to use stashboard 
-(http://www.stashboard.org/) UI to update the status on the public view based on zabbix trigger status.
+      
+  The goal of the project to get dashboard similar like Google (https://www.google.com/appsstatus#hl=en&v=status) and AWS status monitoring for the internal staff or your customers view.
+  
+  Both tools are different purposes and we want to get queried the zabbix trigger and get update to stashboard via REST API or JSON,SOAP UI. 
 
 
-## Zabbix MySQL Querires status ###
+###  Zabbix Monitoring Tool
 
-//to get displayed all host names.
+Basic useful feature list:
 
+
+Zabbix is a monitoring tool which can be useful monitor entire infrastructure, litrelly any services. if not already experienced take a look here https://zabbix.org/zabbix/zabbix.php?action=dashboard.view
+
+
+### Stashboard 
+
+Stashboard is a statusboard similar like google amazon services status. It's based on Google app enginer. It's good for deep analysis and not good for public view. I decided to use stashboard (http://www.stashboard.org/) UI to update the status on the public view based on zabbix trigger status. However if you want to run locally use whisker board which is forked from stashboard and using Djano frame work based on python.
+
+
+
+
+
+### Zabbix MySQL Queries
+
+* Get all monitoring host names from the zabbix server :
+
+```javascript
 SELECT DISTINCT host, hostid from hosts WHERE host NOT LIKE '%Template%' AND host NOT LIKE '%{%'
+```
 
-## Query to get all triggered hosts
+* Query to get all triggered hosts:
 
-// To get all triggered hosts.
-
+```javascript
 SELECT DISTINCT host, t.description, f.triggerid, e.acknowledged, t.value
 FROM triggers t
 INNER JOIN functions f ON ( f.triggerid = t.triggerid )
@@ -34,11 +49,12 @@ AND i.status =0
 AND t.status =0
 GROUP BY f.triggerid
 ORDER BY t.lastchange DESC
+```
 
 
+* To get a triggers based on the hostname.
 
-## To get a triggers based on the hostname.
-
+```
 SELECT DISTINCT host, t.description, f.triggerid, e.acknowledged, t.value
 FROM triggers t
 INNER JOIN functions f ON ( f.triggerid = t.triggerid )
@@ -55,5 +71,6 @@ AND t.status =0
 AND host = 'hostname you want to get'
 GROUP BY f.triggerid
 ORDER BY t.lastchange DESC
+```
 
 
