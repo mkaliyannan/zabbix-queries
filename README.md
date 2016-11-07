@@ -99,3 +99,7 @@ ORDER BY t.lastchange DESC
 |Hostname1.example.com    | HTTP service is down on {HOST.NAME}                      |     14271 |            0 |     1 |
 +-------------------------+----------------------------------------------------------+-----------+--------------+-------+
 ```
+
+Rest I will add later.
+
+
