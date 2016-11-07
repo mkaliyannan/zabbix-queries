@@ -96,6 +96,6 @@ ORDER BY t.lastchange DESC
 | host                    | description                                              | triggerid | acknowledged | value |
 +-------------------------+----------------------------------------------------------+-----------+--------------+-------+
 |Hostname1.example.com    | Zabbix agent on {HOST.NAME} is unreachable for 5 minutes |     14274 |            0 |     1 |
-|Hostname2.example.com    | HTTP service is down on {HOST.NAME}                      |     14271 |            0 |     1 |
+|Hostname1.example.com    | HTTP service is down on {HOST.NAME}                      |     14271 |            0 |     1 |
 +-------------------------+----------------------------------------------------------+-----------+--------------+-------+
 ```
