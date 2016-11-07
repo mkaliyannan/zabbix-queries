@@ -30,7 +30,14 @@ Stashboard is a statusboard similar like google amazon services status. It's bas
 ```javascript
 SELECT DISTINCT host, hostid from hosts WHERE host NOT LIKE '%Template%' AND host NOT LIKE '%{%'
 ```
-
+Result :
+```javascript
++--------------------------------------------+--------+
+| host                                       | hostid |
++--------------------------------------------+--------+
+|  Hostname1.exammple.com                    |  10132 |
+|--------------------------------------------+--------+
+```
 * Query to get all triggered hosts:
 
 ```javascript
@@ -49,6 +56,16 @@ AND i.status =0
 AND t.status =0
 GROUP BY f.triggerid
 ORDER BY t.lastchange DESC
+```
+* Result :
+
+```javascript
++--------------------------------------------+----------------------------------------------------------+-----------+--------------+-------+
+| host                                       | description                                              | triggerid | acknowledged | value |
++--------------------------------------------+----------------------------------------------------------+-----------+--------------+-------+
+| Hostname1.exammple.com                     | Zabbix agent on {HOST.NAME} is unreachable for 5 minutes |     14336 |            0 |     1 |
+| Hostname2.example.com                      | Zabbix agent on {HOST.NAME} is unreachable for 5 minutes |     14274 |            0 |     1 |
++--------------------------------------------+----------------------------------------------------------+-----------+--------------+-------+
 ```
 
 
@@ -73,4 +90,12 @@ GROUP BY f.triggerid
 ORDER BY t.lastchange DESC
 ```
 
-
+* Result :
+```javascript
++-------------------------+----------------------------------------------------------+-----------+--------------+-------+
+| host                    | description                                              | triggerid | acknowledged | value |
++-------------------------+----------------------------------------------------------+-----------+--------------+-------+
+|Hostname1.example.com    | Zabbix agent on {HOST.NAME} is unreachable for 5 minutes |     14274 |            0 |     1 |
+|Hostname2.example.com    | HTTP service is down on {HOST.NAME}                      |     14271 |            0 |     1 |
++-------------------------+----------------------------------------------------------+-----------+--------------+-------+
+```
