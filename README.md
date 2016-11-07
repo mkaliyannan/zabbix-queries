@@ -54,7 +54,7 @@ ORDER BY t.lastchange DESC
 
 * To get a triggers based on the hostname.
 
-```
+```javascript
 SELECT DISTINCT host, t.description, f.triggerid, e.acknowledged, t.value
 FROM triggers t
 INNER JOIN functions f ON ( f.triggerid = t.triggerid )
