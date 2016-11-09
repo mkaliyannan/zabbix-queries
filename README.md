@@ -102,6 +102,24 @@ ORDER BY t.lastchange DESC
 +-------------------------+----------------------------------------------------------+-----------+--------------+-------+
 ```
 
-Rest I will add later.
+### Query all trigger and value contains 0 or 1
 
 
+* To get a triggers based on the hostname.
+
+```
+SELECT DISTINCT host, t.description, f.triggerid, e.acknowledged, t.value
+FROM triggers t
+INNER JOIN functions f ON ( f.triggerid = t.triggerid )
+INNER JOIN items i ON ( i.itemid = f.itemid )
+INNER JOIN hosts ON ( i.hostid = hosts.hostid )
+INNER JOIN events e ON ( e.objectid = t.triggerid )
+WHERE (e.eventid DIV 100000000000000)
+IN (0)
+AND (e.object-0)=0
+AND hosts.status =0
+AND i.status =0
+AND t.status =0
+GROUP BY f.triggerid
+ORDER BY t.lastchange DESC
+```
